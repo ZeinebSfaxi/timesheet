@@ -60,11 +60,37 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 		}
 		
 		return depNames;
+		
+/* try { Optional <Entreprise> entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId);
+		
+		if(entrepriseManagedEntity.isPresent()) {
+		
+		List<String> depNames = new ArrayList<>();
+		for(Departement dep : entrepriseManagedEntity.getDepartements()){
+			depNames.add(dep.getName());
+		}
+		
+		return depNames; 
+		}
+		}
+		catch(Exception e) {
+			System.out.println("Exception");
+		}*/
+	}
 	}
 
 	@Transactional
-	public void deleteEntrepriseById(int entrepriseId) {
-		entrepriseRepoistory.delete(entrepriseRepoistory.findById(entrepriseId).get());	
+	public void deleteEntrepriseById(int id) {
+		Optional <Entreprise> entreprise = entrepriseRepoistory.findById(id);
+		if (entreprise.isPresent()) {
+			
+			entrepriseRepoistory.delete(entrepriseRepoistory.findById(id).get());	
+		}
+		else {
+			System.out.println("N'existe pas");
+		}
+
+	
 	}
 
 	@Transactional
