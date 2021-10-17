@@ -27,16 +27,16 @@ public class TimesheetApplicationTests {
 	@Test
 	public void contextLoads() {
 		
-		Entreprise e = new Entreprise("SSII Consulting2", "Cite El Ghazela2");
+		Entreprise e = new Entreprise("ENTREPRISENAME", "MITHEL");
 		ientrepriseservice.ajouterEntreprise(e);
         Departement department = new Departement();
 		
-		department.setName("Telecom");
+		department.setName("IT");
 		ientrepriseservice.ajouterDepartement(department);
 		
 		Departement department1 = new Departement();
 		//d1.setEntreprise(e);
-		department1.setName("RH");
+		department1.setName("TELECOM");
 		ientrepriseservice.ajouterDepartement(department1);
 		
 		ientrepriseservice.affecterDepartementAEntreprise(1, 1);

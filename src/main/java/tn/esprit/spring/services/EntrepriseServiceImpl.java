@@ -29,11 +29,13 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 	public int ajouterEntreprise(Entreprise entreprise) {
 		entrepriseRepoistory.save(entreprise);
+		log.info(entreprise.getName());
 		return entreprise.getId();
 	}
 
 	public int ajouterDepartement(Departement dep) {
 		deptRepoistory.save(dep);
+		log.info(dep.getName());
 		return dep.getId();
 	}
 
