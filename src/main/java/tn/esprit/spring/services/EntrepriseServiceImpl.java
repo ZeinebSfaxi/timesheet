@@ -1,6 +1,7 @@
 package tn.esprit.spring.services;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
 
@@ -53,31 +54,24 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 	}
 	
 	public List<String> getAllDepartementsNamesByEntreprise(int entrepriseId) {
-		Entreprise entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId).get();
-		List<String> depNames = new ArrayList<>();
-		for(Departement dep : entrepriseManagedEntity.getDepartements()){
-			depNames.add(dep.getName());
-		}
 		
-		return depNames;
-		
-/* try { Optional <Entreprise> entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId);
+
+		Optional <Entreprise> entrepriseManagedEntity = entrepriseRepoistory.findById(entrepriseId);
 		
 		if(entrepriseManagedEntity.isPresent()) {
 		
 		List<String> depNames = new ArrayList<>();
-		for(Departement dep : entrepriseManagedEntity.getDepartements()){
+		Entreprise entreprise = entrepriseManagedEntity.get();
+		for(Departement dep : entreprise.getDepartements()){
 			depNames.add(dep.getName());
 		}
-		
-		return depNames; 
+		 return depNames; 
+			
 		}
-		}
-		catch(Exception e) {
-			System.out.println("Exception");
-		}*/
+		else return Collections.emptyList();
+	
 	}
-	}
+	
 
 	@Transactional
 	public void deleteEntrepriseById(int id) {
