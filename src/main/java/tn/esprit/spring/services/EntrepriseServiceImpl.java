@@ -77,7 +77,6 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 	public void deleteEntrepriseById(int id) {
 		Optional <Entreprise> entreprise = entrepriseRepoistory.findById(id);
 		if (entreprise.isPresent()) {
-			
 			entrepriseRepoistory.delete(entrepriseRepoistory.findById(id).get());	
 		}
 		else {
@@ -101,8 +100,23 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 	}
 
 
-	public Entreprise getEntrepriseById(int entrepriseId) {
-		return entrepriseRepoistory.findById(entrepriseId).get();	
+	public Entreprise getEntrepriseById(int id) {
+		Optional <Entreprise> entreprise = entrepriseRepoistory.findById(id);
+		try {
+			Entreprise entreprisee = null;
+		 if (entreprise.isPresent()) {
+			
+			 entreprisee = entreprise.get();	
+				return entreprisee;	
+		 }
+		}
+		 catch(Exception e){
+			  System.out.println("Exception");
+		    } 
+
+		return null;
+
+	
 	}
 
 }
