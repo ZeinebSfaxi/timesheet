@@ -34,7 +34,13 @@ public class TimesheetApplicationTests {
 		department.setName("Telecom");
 		ientrepriseservice.ajouterDepartement(department);
 		
+		Departement department1 = new Departement();
+		//d1.setEntreprise(e);
+		department1.setName("RH");
+		ientrepriseservice.ajouterDepartement(department1);
 		
+		ientrepriseservice.affecterDepartementAEntreprise(1, 1);
+		ientrepriseservice.affecterDepartementAEntreprise(2, 1);
 			
 		
 	}
