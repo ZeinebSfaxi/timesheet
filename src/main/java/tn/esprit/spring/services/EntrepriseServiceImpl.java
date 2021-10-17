@@ -76,12 +76,18 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 	@Transactional
 	public void deleteEntrepriseById(int id) {
 		Optional <Entreprise> entreprise = entrepriseRepoistory.findById(id);
+		try {
 		if (entreprise.isPresent()) {
-			entrepriseRepoistory.delete(entrepriseRepoistory.findById(id).get());	
+			
+			entrepriseRepoistory.delete(entreprise.get());	
 		}
 		else {
 			System.out.println("N'existe pas");
 		}
+		}
+		 catch(Exception e){
+			  System.out.println("Exception");
+		    } 
 
 	
 	}
@@ -89,14 +95,18 @@ public void affecterDepartementAEntreprise(int depId, int entrepriseId) {
 	@Transactional
 	public void deleteDepartementById(int id) {
 		Optional <Departement> departement = deptRepoistory.findById(id);
+		try {
+		
          if (departement.isPresent()) {
-			
-        	 deptRepoistory.delete(deptRepoistory.findById(id).get());	
+         deptRepoistory.delete(departement.get());	
 		}
 		else {
 			System.out.println("N'existe pas");
 		}
-		
+		}
+		 catch(Exception e){
+			  System.out.println("Exception");
+		    } 
 	}
 
 
