@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Built-By: zeineb
 Build-Jdk: 16.0.2
 Implementation-Title: timesheet
-Implementation-Version: 1.11-SNAPSHOT
+Implementation-Version: 2.0-SNAPSHOT
 Implementation-Vendor-Id: tn.esprit.spring
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
  -starter-parent/timesheet
