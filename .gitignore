@@ -29,3 +29,4 @@ build/
 
 ### VS Code ###
 .vscode/
+src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
