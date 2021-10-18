@@ -110,6 +110,12 @@
 			<version>4.13</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+    		<groupId>com.sun.mail</groupId>
+    		<artifactId>gimap</artifactId>
+    		<version>1.6.4</version>
+		</dependency>
 	</dependencies>
 	
 
