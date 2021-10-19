@@ -27,8 +27,3 @@ target/
 /.nb-gradle/
 build/
 
-### VS Code ###
-.vscode/
-src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
-src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
-*.properties
