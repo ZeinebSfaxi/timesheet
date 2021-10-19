@@ -53,7 +53,7 @@ public class EmployeServiceImpl implements IEmployeService {
 			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
 
 			if (employeManagedEntity.isPresent()) {
-				Employe employe = employeRepository.findById(employeId).get();
+				Employe employe = employeManagedEntity.get();
 				employe.setEmail(email);
 				employeRepository.save(employe);
 			} else {
@@ -61,7 +61,6 @@ public class EmployeServiceImpl implements IEmployeService {
 			}
 
 		} catch (Exception e) {
-			// System.out.print(e.toString());
 			log.error(e.toString());
 		}
 	}
@@ -76,8 +75,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 			if (depManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
 
-				Departement department = deptRepoistory.findById(depId).get();
-				Employe employe = employeRepository.findById(employeId).get();
+				Departement department = depManagedEntity.get();
+				Employe employe = employeManagedEntity.get();
 
 				if (department.getEmployes() == null) {
 
@@ -101,7 +100,6 @@ public class EmployeServiceImpl implements IEmployeService {
 			}
 
 		} catch (Exception e) {
-			// System.out.print(e.toString());
 			log.error(e.toString());
 		}
 	}
@@ -115,39 +113,37 @@ public class EmployeServiceImpl implements IEmployeService {
 
 			if (depManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
 
-				Departement dep = deptRepoistory.findById(depId).get();
-				Employe emp = employeRepository.findById(employeId).get();
+				Departement dep = depManagedEntity.get();
+				Employe emp = employeManagedEntity.get();
 
 				int employeNb = dep.getEmployes().size();
-				for (int index = 0; index < employeNb; index++) {
+				int index = 0;
+				int i = 0;
+
+				for (index = 0; index < employeNb; index++) {
 					if (dep.getEmployes().get(index).getId() == employeId) {
 						dep.getEmployes().remove(index);
-						// emp.getDepartements().remove(index)
 
-						break;// a revoir
+						break;
 					}
+				}
 
-					if (index >= employeNb) {
+				if (index >= employeNb) {
 
-						log.info("Cet employe n'existe pas dans ce departement");
+					log.info("Cet employe n'existe pas dans ce departement");
 
-					} else {
-						int depNb = emp.getDepartements().size();
+				} else {
+					int depNb = emp.getDepartements().size();
 
-						for (int i = 0; i < depNb; i++) {
-							if (emp.getDepartements().get(i).getId() == depId) {
-								emp.getDepartements().remove(i);
-								break;
-							}
+					for (i = 0; i < depNb; i++) {
+						if (emp.getDepartements().get(i).getId() == depId) {
+							emp.getDepartements().remove(i);
+							break;
 						}
-
-						// save dep
-
-						deptRepoistory.save(dep);
-
-						// save emp
-						employeRepository.save(emp);
 					}
+
+					deptRepoistory.save(dep);
+					employeRepository.save(emp);
 				}
 			}
 
@@ -158,13 +154,11 @@ public class EmployeServiceImpl implements IEmployeService {
 		}
 
 		catch (Exception e) {
-			// System.out.print(e.toString());
 			log.error(e.toString());
 		}
 
 	}
 
-	// Tablesapce (espace disque)
 
 	public int ajouterContrat(Contrat contrat) {
 		contratRepoistory.save(contrat);
@@ -173,41 +167,90 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
 
-		Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
-		Optional<Contrat> contratManagedEntity = contratRepoistory.findById(contratId);
+		try {
+			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
+			Optional<Contrat> contratManagedEntity = contratRepoistory.findById(contratId);
 
-		if (contratManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
+			if (contratManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
 
-			Contrat contrat = contratRepoistory.findById(contratId).get();
-			Employe employe = employeRepository.findById(employeId).get();
+				Contrat contrat = contratManagedEntity.get();
+				Employe employe = employeManagedEntity.get();
 
-			contrat.setEmploye(employe);
-			contratRepoistory.save(contrat);
+				contrat.setEmploye(employe);
+				contratRepoistory.save(contrat);
+			} else {
+				log.warn("Ce contract ou cet employé n'existe pas");
+			}
+		} catch (Exception e) {
+			log.error(e.toString());
 		}
 
 	}
 
 	public String getEmployePrenomById(int employeId) {
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
-		return employeManagedEntity.getPrenom();
+		try {
+			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
+			if (employeManagedEntity.isPresent()) {
+				Employe employe = employeManagedEntity.get();
+				return employe.getPrenom();
+			} else {
+				log.warn("Cet employé n'existe pas");
+
+			}
+
+		} catch (Exception e) {
+			log.error(e.toString());
+
+		}
+		return null;
+
 	}
 
 	public void deleteEmployeById(int employeId) {
-		Employe employe = employeRepository.findById(employeId).get();
 
-		// Desaffecter l'employe de tous les departements
-		// c'est le bout master qui permet de mettre a jour
-		// la table d'association
-		for (Departement dep : employe.getDepartements()) {
-			dep.getEmployes().remove(employe);
+		try {
+			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
+			if (employeManagedEntity.isPresent()) {
+
+				Employe employe = employeManagedEntity.get();
+
+				for (Departement dep : employe.getDepartements()) {
+					dep.getEmployes().remove(employe);
+					deptRepoistory.save(dep);
+				}
+
+				employeRepository.delete(employe);
+			}
+
+			else {
+				log.warn("Cet employé n'existe pas");
+
+			}
+		} catch (Exception e) {
+			log.error(e.toString());
+
 		}
 
-		employeRepository.delete(employe);
 	}
 
 	public void deleteContratById(int contratId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		contratRepoistory.delete(contratManagedEntity);
+
+		try {
+			Optional<Contrat> contratManagedEntity = contratRepoistory.findById(contratId);
+
+			if (contratManagedEntity.isPresent()) {
+				Contrat contrat = contratManagedEntity.get();
+				contratRepoistory.delete(contrat);
+			}
+			
+			else {
+				log.warn("Ce contrat n'existe pas");
+
+			}
+		} catch (Exception e) {
+			log.error(e.toString());
+
+		}
 
 	}
 
