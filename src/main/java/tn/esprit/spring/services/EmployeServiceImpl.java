@@ -56,6 +56,8 @@ public class EmployeServiceImpl implements IEmployeService {
 				Employe employe = employeRepository.findById(employeId).get();
 				employe.setEmail(email);
 				employeRepository.save(employe);
+			} else {
+				log.warn("Cet employe n'existe pas");
 			}
 
 		} catch (Exception e) {
@@ -75,16 +77,16 @@ public class EmployeServiceImpl implements IEmployeService {
 			if (depManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
 
 				Departement department = deptRepoistory.findById(depId).get();
-				Employe employee = employeRepository.findById(employeId).get();
+				Employe employe = employeRepository.findById(employeId).get();
 
 				if (department.getEmployes() == null) {
 
 					List<Employe> employes = new ArrayList<>();
-					employes.add(employee);
+					employes.add(employe);
 					department.setEmployes(employes);
 				} else {
 
-					department.getEmployes().add(employee);
+					department.getEmployes().add(employe);
 				}
 
 				deptRepoistory.save(department);
@@ -93,23 +95,73 @@ public class EmployeServiceImpl implements IEmployeService {
 				log.info(employeManagedEntity);
 
 			}
+
+			else {
+				log.warn("Cet employe ou ce departement n'existe pas");
+			}
+
 		} catch (Exception e) {
 			// System.out.print(e.toString());
-			log.info(e.toString());
+			log.error(e.toString());
 		}
 	}
 
 	@Transactional
 	public void desaffecterEmployeDuDepartement(int employeId, int depId) {
-		Departement dep = deptRepoistory.findById(depId).get();
 
-		int employeNb = dep.getEmployes().size();
-		for (int index = 0; index < employeNb; index++) {
-			if (dep.getEmployes().get(index).getId() == employeId) {
-				dep.getEmployes().remove(index);
-				break;// a revoir
+		try {
+			Optional<Departement> depManagedEntity = deptRepoistory.findById(depId);
+			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
+
+			if (depManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
+
+				Departement dep = deptRepoistory.findById(depId).get();
+				Employe emp = employeRepository.findById(employeId).get();
+
+				int employeNb = dep.getEmployes().size();
+				for (int index = 0; index < employeNb; index++) {
+					if (dep.getEmployes().get(index).getId() == employeId) {
+						dep.getEmployes().remove(index);
+						// emp.getDepartements().remove(index)
+
+						break;// a revoir
+					}
+
+					if (index >= employeNb) {
+
+						log.info("Cet employe n'existe pas dans ce departement");
+
+					} else {
+						int depNb = emp.getDepartements().size();
+
+						for (int i = 0; i < depNb; i++) {
+							if (emp.getDepartements().get(i).getId() == depId) {
+								emp.getDepartements().remove(i);
+								break;
+							}
+						}
+
+						// save dep
+
+						deptRepoistory.save(dep);
+
+						// save emp
+						employeRepository.save(emp);
+					}
+				}
 			}
+
+			else {
+				log.warn("Ce departement ou cet employé n'existe pas");
+			}
+
 		}
+
+		catch (Exception e) {
+			// System.out.print(e.toString());
+			log.error(e.toString());
+		}
+
 	}
 
 	// Tablesapce (espace disque)
@@ -120,11 +172,18 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public void affecterContratAEmploye(int contratId, int employeId) {
-		Contrat contratManagedEntity = contratRepoistory.findById(contratId).get();
-		Employe employeManagedEntity = employeRepository.findById(employeId).get();
 
-		contratManagedEntity.setEmploye(employeManagedEntity);
-		contratRepoistory.save(contratManagedEntity);
+		Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
+		Optional<Contrat> contratManagedEntity = contratRepoistory.findById(contratId);
+
+		if (contratManagedEntity.isPresent() && employeManagedEntity.isPresent()) {
+
+			Contrat contrat = contratRepoistory.findById(contratId).get();
+			Employe employe = employeRepository.findById(employeId).get();
+
+			contrat.setEmploye(employe);
+			contratRepoistory.save(contrat);
+		}
 
 	}
 
