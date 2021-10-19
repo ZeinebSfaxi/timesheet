@@ -299,14 +299,12 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Override
 	public Employe mapToEntity(EmployeDTO employeDTO) {
-		Employe employe = mapper.map(employeDTO, Employe.class);
-		return employe;
+		return mapper.map(employeDTO, Employe.class);
 	}
 
 	@Override
 	public EmployeDTO mapToDTO(Employe employe) {
-		EmployeDTO employeDTO = mapper.map(employe, EmployeDTO.class);
-		return employeDTO;
+		return mapper.map(employe, EmployeDTO.class);
 	}
 
 }

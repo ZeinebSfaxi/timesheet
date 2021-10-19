@@ -27,15 +27,14 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public Contrat mapToEntity(ContratDTO contratDTO) {
-		Contrat contrat = mapper.map(contratDTO, Contrat.class);
-		return contrat;
+		return mapper.map(contratDTO, Contrat.class);
 	}
 
 
 	@Override
 	public ContratDTO mapToDTO(Contrat contrat) {
-		ContratDTO contratDTO = mapper.map(contrat, ContratDTO.class);
-		return contratDTO;
+		
+		return mapper.map(contrat, ContratDTO.class);
 	}
 
 }
