@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Built-By: Amine
 Build-Jdk: 16.0.1
 Implementation-Title: timesheet
-Implementation-Version: 1.6-SNAPSHOT
+Implementation-Version: 1.7-SNAPSHOT
 Implementation-Vendor-Id: tn.esprit.spring
 Implementation-URL: https://projects.spring.io/spring-boot/#/spring-boot
  -starter-parent/timesheet

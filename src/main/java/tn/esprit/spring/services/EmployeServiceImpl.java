@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import tn.esprit.spring.entities.Contrat;
 import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Employe;
+import tn.esprit.spring.entities.EmployeDTO;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Timesheet;
@@ -21,6 +22,7 @@ import tn.esprit.spring.repository.EmployeRepository;
 import tn.esprit.spring.repository.TimesheetRepository;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.modelmapper.ModelMapper;
 
 @Service
 public class EmployeServiceImpl implements IEmployeService {
@@ -36,6 +38,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	private static final Logger log = LogManager.getLogger(EmployeServiceImpl.class);
 
+	private ModelMapper mapper;
+	
 	@Override
 	public Employe authenticate(String login, String password) {
 		return employeRepository.getEmployeByEmailAndPassword(login, password);
@@ -291,6 +295,18 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public List<Employe> getAllEmployes() {
 		return (List<Employe>) employeRepository.findAll();
+	}
+
+	@Override
+	public Employe mapToEntity(EmployeDTO employeDTO) {
+		Employe employe = mapper.map(employeDTO, Employe.class);
+		return employe;
+	}
+
+	@Override
+	public EmployeDTO mapToDTO(Employe employe) {
+		EmployeDTO employeDTO = mapper.map(employe, EmployeDTO.class);
+		return employeDTO;
 	}
 
 }
