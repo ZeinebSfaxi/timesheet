@@ -47,6 +47,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
+		
 		employeRepository.save(employe);
 		return employe.getId();
 	}
@@ -299,12 +300,16 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Override
 	public Employe mapToEntity(EmployeDTO employeDTO) {
-		return mapper.map(employeDTO, Employe.class);
+		ModelMapper modelMapper = new ModelMapper();
+
+		return modelMapper.map(employeDTO, Employe.class);
 	}
 
 	@Override
 	public EmployeDTO mapToDTO(Employe employe) {
-		return mapper.map(employe, EmployeDTO.class);
+		ModelMapper modelMapper = new ModelMapper();
+
+		return modelMapper.map(employe, EmployeDTO.class);
 	}
 
 }

@@ -17,7 +17,6 @@ public class ContratServiceImpl implements IContratService {
 
 	@Autowired
 	ContratRepository contratRepository;
-	private ModelMapper mapper;
 
 
 	public List<Contrat> getAllContrats() {
@@ -27,14 +26,17 @@ public class ContratServiceImpl implements IContratService {
 
 	@Override
 	public Contrat mapToEntity(ContratDTO contratDTO) {
-		return mapper.map(contratDTO, Contrat.class);
+		ModelMapper modelMapper = new ModelMapper();
+
+		return modelMapper.map(contratDTO, Contrat.class);
 	}
 
 
 	@Override
 	public ContratDTO mapToDTO(Contrat contrat) {
-		
-		return mapper.map(contrat, ContratDTO.class);
+		ModelMapper modelMapper = new ModelMapper();
+
+		return modelMapper.map(contrat, ContratDTO.class);
 	}
 
 }
