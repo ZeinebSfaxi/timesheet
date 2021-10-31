@@ -35,7 +35,7 @@ class TimesheetApplicationTests {
 		iEmployeService.addOrUpdateEmploye(emp);
 		
 		//iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123");
-		iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123456");
+		Employe loggedIn= iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123456");
 		
 		//iEmployeService.deleteEmployeById(6);
 		//iEmployeService.mettreAjourEmailByEmployeId("testemail@email.com", 7);
@@ -50,7 +50,7 @@ class TimesheetApplicationTests {
         Departement department = new Departement();
         depRep.save(department);
         iEmployeService.affecterEmployeADepartement(emp.getId(),department.getId());
-		iEmployeService.desaffecterEmployeDuDepartement(7,1);
+		//iEmployeService.desaffecterEmployeDuDepartement(loggedIn.getId(),2);
 		
 		
 		//contrat test
@@ -60,14 +60,7 @@ class TimesheetApplicationTests {
 		//iEmployeService.deleteContratById(2);
 		
 		
-		/*public void mettreAjourEmailByEmployeIdJPQL(String email, int employeId);
-		public void deleteAllContratJPQL();
-		public float getSalaireByEmployeIdJPQL(int employeId);
-		public Double getSalaireMoyenByDepartementId(int departementId);
-		public List<Employe> getAllEmployes();
-		public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, 
-		Date dateDebut, Date dateFin);*/
-
+	
 		
 		
 	}
