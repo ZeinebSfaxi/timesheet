@@ -31,32 +31,32 @@ class TimesheetApplicationTests {
 	void contextLoads() {
 		
 		//employee test
-		//Employe emp = new Employe("Zargouni","Amine","mohamedamine.zargouni@esprit.tn","123456",true,Role.INGENIEUR);
-		//iEmployeService.addOrUpdateEmploye(emp);
+		Employe emp = new Employe("Zargouni","Amine","mohamedamine.zargouni@esprit.tn","123456",true,Role.INGENIEUR);
+		iEmployeService.addOrUpdateEmploye(emp);
 		
 		//iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123");
-		//iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123456");
+		iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123456");
 		
 		//iEmployeService.deleteEmployeById(6);
 		//iEmployeService.mettreAjourEmailByEmployeId("testemail@email.com", 7);
 		
 		
-		//iEmployeService.getEmployePrenomById(7);
-		//iEmployeService.getNombreEmployeJPQL();
-		//iEmployeService.getAllEmployeNamesJPQL();
+		iEmployeService.getEmployePrenomById(emp.getId());
+		iEmployeService.getNombreEmployeJPQL();
+		iEmployeService.getAllEmployeNamesJPQL();
 		
 		
 		//departement test
-        //Departement department = new Departement();
-        //depRep.save(department);
-        //iEmployeService.affecterEmployeADepartement(7,1);
-		//iEmployeService.desaffecterEmployeDuDepartement(7,1);
+        Departement department = new Departement();
+        depRep.save(department);
+        iEmployeService.affecterEmployeADepartement(emp.getId(),department.getId());
+		iEmployeService.desaffecterEmployeDuDepartement(7,1);
 		
 		
 		//contrat test
-		//Contrat contrat = new Contrat();
-		//iEmployeService.ajouterContrat(contrat);
-		//iEmployeService.affecterContratAEmploye(1,7);
+		Contrat contrat = new Contrat();
+		iEmployeService.ajouterContrat(contrat);
+		iEmployeService.affecterContratAEmploye(contrat.getReference(),emp.getId());
 		//iEmployeService.deleteContratById(2);
 		
 		
