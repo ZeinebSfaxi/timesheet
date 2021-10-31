@@ -46,7 +46,7 @@ public class ControllerEmployeImpl  {
 
 	private Integer employeIdToBeUpdated; // getter et setter
 
-	private final String loginUrl ="/login.xhtml?faces-redirect=true";
+	private static final String LOGIN_URL ="/login.xhtml?faces-redirect=true";
 	
 	public String doLogin() {
 
@@ -71,13 +71,13 @@ public class ControllerEmployeImpl  {
 	{
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 	
-	return loginUrl;
+	return LOGIN_URL;
 	}
 
 
 	public String addEmploye() {
 
-		if (authenticatedUser==null || !loggedIn) return loginUrl;
+		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
 
 		employeService.addOrUpdateEmploye(new Employe(nom, prenom, email, password, actif, role)); 
 		return "null"; 
@@ -85,7 +85,7 @@ public class ControllerEmployeImpl  {
 
 	public String removeEmploye(int employeId) {
 		String navigateTo = "null";
-		if (authenticatedUser==null || !loggedIn) return loginUrl;
+		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
 
 		employeService.deleteEmployeById(employeId);
 		return navigateTo; 
@@ -94,7 +94,7 @@ public class ControllerEmployeImpl  {
 	public String displayEmploye(Employe empl) 
 	{
 		String navigateTo = "null";
-		if (authenticatedUser==null || !loggedIn) return loginUrl;
+		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
 
 
 		this.setPrenom(empl.getPrenom());
@@ -113,7 +113,7 @@ public class ControllerEmployeImpl  {
 	{ 
 		String navigateTo = "null";
 		
-		if (authenticatedUser==null || !loggedIn) return loginUrl;
+		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
 
 		employeService.addOrUpdateEmploye(new Employe(employeIdToBeUpdated, nom, prenom, email, password, actif, role)); 
 
