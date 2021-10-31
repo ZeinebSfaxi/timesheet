@@ -48,7 +48,10 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		Employe emp= employeRepository.getEmployeByEmailAndPassword(login);
 		if (passwordEncoder.matches(password, emp.getPassword()))
+		{	log.info("Employee logged in : "+emp);
 			return emp;
+		}
+		log.warn("Email or password incorrect ");
 		return null;
 	}
 
@@ -57,6 +60,7 @@ public class EmployeServiceImpl implements IEmployeService {
 		
 		employe.setPassword(passwordEncoder.encode(employe.getPassword()));
 		employeRepository.save(employe);
+		log.info("Employee added : "+employe);
 		return employe.getId();
 	}
 
@@ -69,6 +73,8 @@ public class EmployeServiceImpl implements IEmployeService {
 				Employe employe = employeManagedEntity.get();
 				employe.setEmail(email);
 				employeRepository.save(employe);
+				log.info("Employee updated : "+employe);
+
 			} else {
 				log.warn("Cet employe n'existe pas");
 			}
@@ -103,8 +109,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 				deptRepoistory.save(department);
 
-				log.info(depManagedEntity);
-				log.info(employeManagedEntity);
+				log.info("departement affected "+department);
+				log.info("employee affected "+employe);
 
 			}
 
@@ -143,7 +149,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 				if (index >= employeNb) {
 
-					log.info("Cet employe n'existe pas dans ce departement");
+					log.warn("Cet employe n'existe pas dans ce departement");
 
 				} else {
 					int depNb = emp.getDepartements().size();
@@ -157,6 +163,9 @@ public class EmployeServiceImpl implements IEmployeService {
 
 					deptRepoistory.save(dep);
 					employeRepository.save(emp);
+					
+					log.info("departement affected "+dep);
+					log.info("employee affected "+emp);
 				}
 			}
 
@@ -175,6 +184,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public int ajouterContrat(Contrat contrat) {
 		contratRepoistory.save(contrat);
+		log.info("contrat added "+contrat);
+
 		return contrat.getReference();
 	}
 
@@ -191,6 +202,9 @@ public class EmployeServiceImpl implements IEmployeService {
 
 				contrat.setEmploye(employe);
 				contratRepoistory.save(contrat);
+				
+				log.info("contart affected "+contrat);
+				log.info("employee affected "+employe);
 			} else {
 				log.warn("Ce contract ou cet employé n'existe pas");
 			}
@@ -205,6 +219,8 @@ public class EmployeServiceImpl implements IEmployeService {
 			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
 			if (employeManagedEntity.isPresent()) {
 				Employe employe = employeManagedEntity.get();
+				log.info("Employe prenom : "+employe.getPrenom());
+
 				return employe.getPrenom();
 			} else {
 				log.warn("Cet employé n'existe pas");
@@ -233,6 +249,8 @@ public class EmployeServiceImpl implements IEmployeService {
 				}
 
 				employeRepository.delete(employe);
+				log.info("Employe deleted : "+employe);
+
 			}
 
 			else {
@@ -254,6 +272,8 @@ public class EmployeServiceImpl implements IEmployeService {
 			if (contratManagedEntity.isPresent()) {
 				Contrat contrat = contratManagedEntity.get();
 				contratRepoistory.delete(contrat);
+				log.info("contrat deleted : "+contrat);
+
 			}
 			
 			else {
@@ -268,10 +288,14 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public int getNombreEmployeJPQL() {
+		log.info("Nombre employees : "+employeRepository.countemp());
+
 		return employeRepository.countemp();
 	}
 
 	public List<String> getAllEmployeNamesJPQL() {
+		log.info("Employee names : "+employeRepository.employeNames());
+
 		return employeRepository.employeNames();
 
 	}
