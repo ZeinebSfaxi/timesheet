@@ -46,6 +46,9 @@ public class RestControlEmploye {
 	// "email":"Khaled.kallel@ssiiconsulting.tn", "isActif":true,
 	// "role":"INGENIEUR"}
 
+	//http://localhost:8082/SpringMVC/servlet/login
+	//{"email": "Khaled.kallel@ssiiconsulting.tn","password": "test"}
+	
 	@PostMapping("/login")
 	@ResponseBody
 	public ResponseEntity<Employe> login(@RequestBody EmployeDTO employeDTO) {
