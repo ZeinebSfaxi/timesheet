@@ -41,7 +41,7 @@ class TimesheetApplicationTests {
 		//iEmployeService.mettreAjourEmailByEmployeId("testemail@email.com", 7);
 		
 		
-		iEmployeService.getEmployePrenomById(emp.getId());
+		iEmployeService.getEmployePrenomById(loggedIn.getId());
 		iEmployeService.getNombreEmployeJPQL();
 		iEmployeService.getAllEmployeNamesJPQL();
 		
@@ -49,14 +49,14 @@ class TimesheetApplicationTests {
 		//departement test
         Departement department = new Departement();
         depRep.save(department);
-        iEmployeService.affecterEmployeADepartement(emp.getId(),department.getId());
-		//iEmployeService.desaffecterEmployeDuDepartement(loggedIn.getId(),2);
+        iEmployeService.affecterEmployeADepartement(loggedIn.getId(),department.getId());
+		//iEmployeService.desaffecterEmployeDuDepartement(11,3);
 		
 		
 		//contrat test
 		Contrat contrat = new Contrat();
 		iEmployeService.ajouterContrat(contrat);
-		iEmployeService.affecterContratAEmploye(contrat.getReference(),emp.getId());
+		iEmployeService.affecterContratAEmploye(contrat.getReference(),loggedIn.getId());
 		//iEmployeService.deleteContratById(2);
 		
 		

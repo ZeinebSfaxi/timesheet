@@ -3,6 +3,7 @@ package tn.esprit.spring.entities;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -31,8 +32,7 @@ public class Employe implements Serializable {
 	
 	private String nom;
 	
-	//@Column(unique=true)
-	//@Pattern(regex=".+\@.+\..+")
+	@Column(unique=true)
 	private String email;
 
 	private String password;

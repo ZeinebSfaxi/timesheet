@@ -57,7 +57,12 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
-		
+		Employe emp= employeRepository.getEmployeByEmailAndPassword(employe.getEmail());
+		if(emp!=null) {
+			log.warn("this email adress already exsits : "+employe.getEmail());
+			return 0;
+
+		}
 		employe.setPassword(passwordEncoder.encode(employe.getPassword()));
 		employeRepository.save(employe);
 		log.info("Employee added : "+employe);
