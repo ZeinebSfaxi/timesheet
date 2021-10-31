@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -36,9 +37,11 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	TimesheetRepository timesheetRepository;
 
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+	
 	private static final Logger log = LogManager.getLogger(EmployeServiceImpl.class);
 
-	private ModelMapper mapper;
 	
 	@Override
 	public Employe authenticate(String login, String password) {
@@ -48,6 +51,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
 		
+		employe.setPassword(passwordEncoder.encode(employe.getPassword()));
 		employeRepository.save(employe);
 		return employe.getId();
 	}
