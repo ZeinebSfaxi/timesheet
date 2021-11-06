@@ -103,7 +103,7 @@ public class RestControlEmploye {
 		iemployeservice.affecterContratAEmploye(contratId, employeId);
 	}
 
-	@GetMapping(value = "getEmployePrenomById/{idemp}")
+	@GetMapping(value = "/getEmployePrenomById/{idemp}")
 	@ResponseBody
 	public String getEmployePrenomById(@PathVariable("idemp") int employeId) {
 		return iemployeservice.getEmployePrenomById(employeId);
@@ -122,21 +122,21 @@ public class RestControlEmploye {
 		iemployeservice.deleteContratById(contratId);
 	}
 
-	@GetMapping(value = "getNombreEmployeJPQL")
+	@GetMapping(value = "/getNombreEmployeJPQL")
 	@ResponseBody
 	public int getNombreEmployeJPQL() {
 
 		return iemployeservice.getNombreEmployeJPQL();
 	}
 
-	@GetMapping(value = "getAllEmployeNamesJPQL")
+	@GetMapping(value = "/getAllEmployeNamesJPQL")
 	@ResponseBody
 	public List<String> getAllEmployeNamesJPQL() {
 
 		return iemployeservice.getAllEmployeNamesJPQL();
 	}
 
-	@GetMapping(value = "getAllEmployeByEntreprise/{identreprise}")
+	@GetMapping(value = "/getAllEmployeByEntreprise/{identreprise}")
 	@ResponseBody
 	public List<Employe> getAllEmployeByEntreprise(@PathVariable("identreprise") int identreprise) {
 		Entreprise entreprise = ientrepriseservice.getEntrepriseById(identreprise);
@@ -159,18 +159,21 @@ public class RestControlEmploye {
 
 	}
 
-	@GetMapping(value = "getSalaireByEmployeIdJPQL/{idemp}")
+	@GetMapping(value = "/getSalaireByEmployeIdJPQL/{idemp}")
 	@ResponseBody
 	public float getSalaireByEmployeIdJPQL(@PathVariable("idemp") int employeId) {
 		return iemployeservice.getSalaireByEmployeIdJPQL(employeId);
 	}
 
-	@GetMapping(value = "getSalaireMoyenByDepartementId/{iddept}")
+	@GetMapping(value = "/getSalaireMoyenByDepartementId/{iddept}")
 	@ResponseBody
 	public Double getSalaireMoyenByDepartementId(@PathVariable("iddept") int departementId) {
 		return iemployeservice.getSalaireMoyenByDepartementId(departementId);
 	}
 
+	
+	@GetMapping(value = "/getTimesheetsByMissionAndDate/{iddept}")
+	@ResponseBody
 	public List<Timesheet> getTimesheetsByMissionAndDate(Employe employe, Mission mission, Date dateDebut,
 			Date dateFin) {
 		return iemployeservice.getTimesheetsByMissionAndDate(employe, mission, dateDebut, dateFin);
