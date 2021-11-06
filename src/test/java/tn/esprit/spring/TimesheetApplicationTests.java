@@ -76,15 +76,15 @@ class TimesheetApplicationTests {
 
 		Entreprise e = new Entreprise("ENTREPRISENAME", "MITHEL");
 		ientrepriseservice.ajouterEntreprise(e);
-        Departement department = new Departement();
+        Departement department1 = new Departement();
 		
 		department.setName("IT");
-		ientrepriseservice.ajouterDepartement(department);
+		ientrepriseservice.ajouterDepartement(department1);
 		
-		Departement department1 = new Departement();
+		Departement department2 = new Departement();
 		//d1.setEntreprise(e);
 		department1.setName("TELECOM");
-		ientrepriseservice.ajouterDepartement(department1);
+		ientrepriseservice.ajouterDepartement(department2);
 		
 		ientrepriseservice.affecterDepartementAEntreprise(1, 1);
 		ientrepriseservice.affecterDepartementAEntreprise(2, 1);
