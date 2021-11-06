@@ -1,10 +1,7 @@
 package tn.esprit.spring.entities;
 
-import java.io.Serializable;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
@@ -17,54 +14,49 @@ import javax.persistence.OneToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
-
-@Entity
-public class Employe implements Serializable {
-	
-	private static final long serialVersionUID = -1396669830860400871L;
+public class EmployeDTO {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String prenom;
-	
+
 	private String nom;
-	
-	@Column(unique=true)
+
+	// @Column(unique=true)
+	// @Pattern(regex=".+\@.+\..+")
 	private String email;
 
 	private String password;
-	
+
 	private boolean actif;
-	
+
 	@Enumerated(EnumType.STRING)
-	//@NotNull
+	// @NotNull
 	private Role role;
-	
-	//@JsonBackReference  
+
+	// @JsonBackReference
 	@JsonIgnore
-	@ManyToMany(mappedBy="employes",fetch=FetchType.EAGER )
-	//@NotNull
+	@ManyToMany(mappedBy = "employes", fetch = FetchType.EAGER)
+	// @NotNull
 	private List<Departement> departements;
-	
+
 	@JsonIgnore
-	//@JsonBackReference
-	@OneToOne(mappedBy="employe")
+	// @JsonBackReference
+	@OneToOne(mappedBy = "employe")
 	private Contrat contrat;
-	
+
 	@JsonIgnore
-	//@JsonBackReference
-	@OneToMany(mappedBy="employe")
+	// @JsonBackReference
+	@OneToMany(mappedBy = "employe")
 	private List<Timesheet> timesheets;
-	
-	
-	public Employe() {
+
+	public EmployeDTO() {
 		super();
 	}
-	
-		
-	public Employe(int id, String prenom, String nom, String email, String password, boolean actif, Role role) {
+
+	public EmployeDTO(int id, String prenom, String nom, String email, String password, boolean actif, Role role) {
 		super();
 		this.id = id;
 		this.prenom = prenom;
@@ -75,9 +67,7 @@ public class Employe implements Serializable {
 		this.role = role;
 	}
 
-
-
-	public Employe(String nom, String prenom, String email, String password, boolean actif, Role role) {
+	public EmployeDTO(String nom, String prenom, String email, String password, boolean actif, Role role) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
@@ -85,15 +75,15 @@ public class Employe implements Serializable {
 		this.actif = actif;
 		this.role = role;
 	}
-	
-	public Employe(String nom, String prenom, String email, boolean actif, Role role) {
+
+	public EmployeDTO(String nom, String prenom, String email, boolean actif, Role role) {
 		this.nom = nom;
 		this.prenom = prenom;
 		this.email = email;
 		this.actif = actif;
 		this.role = role;
 	}
-	
+
 	public int getId() {
 		return id;
 	}
@@ -121,11 +111,11 @@ public class Employe implements Serializable {
 	public String getEmail() {
 		return email;
 	}
-	 
+
 	public String getPassword() {
 		return password;
 	}
- 
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
@@ -134,18 +124,13 @@ public class Employe implements Serializable {
 		this.email = email;
 	}
 
-
-
-
 	public boolean isActif() {
 		return actif;
 	}
 
-
 	public void setActif(boolean actif) {
 		this.actif = actif;
 	}
-
 
 	public Role getRole() {
 		return role;
@@ -179,13 +164,10 @@ public class Employe implements Serializable {
 		this.timesheets = timesheets;
 	}
 
-
 	@Override
 	public String toString() {
 		return "Employe [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", password="
 				+ password + ", actif=" + actif + ", role=" + role + "]";
 	}
-	
-	
-	
+
 }

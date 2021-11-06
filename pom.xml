@@ -11,7 +11,7 @@
 	</parent>
 	<groupId>tn.esprit.spring</groupId>
 	<artifactId>timesheet</artifactId>
-	<version>2.5-SNAPSHOT</version>
+	<version>2.2-SNAPSHOT</version>
 	<name>timesheet</name>
 	<description>timesheet</description>
 
@@ -98,18 +98,23 @@
 		</dependency>
 		<!-- JSF -->
 
+
+		<!-- https://mvnrepository.com/artifact/org.modelmapper/modelmapper -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.13</version>
-			<scope>test</scope>
+			<groupId>org.modelmapper</groupId>
+			<artifactId>modelmapper</artifactId>
+			<version>2.3.5</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/com.sun.mail/gimap -->
+
+		<!-- https://mvnrepository.com/artifact/org.springframework.security/spring-security-core -->
 		<dependency>
-			<groupId>com.sun.mail</groupId>
-			<artifactId>gimap</artifactId>
-			<version>2.0.0-RC6</version>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+			<version>5.5.2</version>
 		</dependency>
+
+
+	</dependencies>
 
 	</dependencies>
 
@@ -162,14 +167,15 @@
 	</build>
 
 	<distributionManagement>
-		<snapshotRepository>
-			<id>nexus-snapshots</id>
-			<url>http://localhost:8081/repository/maven-snapshots/</url>
-		</snapshotRepository>
 		<repository>
 			<id>nexus-releases</id>
-			<url>http://localhost:8081/repository/maven-releases/</url>
+			<name>Releases</name>
+			<url>http://localhost:8081/repository/maven-releases</url>
 		</repository>
+		<snapshotRepository>
+			<id>nexus-snapshots</id>
+			<name>Snapshot</name>
+			<url>http://localhost:8081/repository/maven-snapshots</url>
+		</snapshotRepository>
 	</distributionManagement>
-
 </project>
