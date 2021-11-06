@@ -28,3 +28,4 @@ target/
 build/
 
 logs/mylog.log
+src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
