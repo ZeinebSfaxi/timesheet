@@ -5,7 +5,14 @@ services:
    ports:
      - "8082:8082"
    image: "timesheet-image"
-   
+   links:
+    - mysql
+   depends_on:
+     - mysql
 
-      
+ mysql:
+   container_name: mysql
+   ports:
+    - "3306:3306"
+   image: "mysql"   
       
