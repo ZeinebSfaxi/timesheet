@@ -6,18 +6,24 @@ services:
      - "8082:8082"
    image: "timesheet-image"
    links:
-    - mysql
+    - mysqldb
    depends_on:
-     - mysql
+     - mysqldb
    environment:
-     - spring.datasource.url=jdbc:mysql://mysql:3000/timesheet-spring?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-     
+      SPRING_APPLICATION_JSON: '{
+        "spring.datasource.url"  : "jdbc:mysql://mysqldb:3306/timesheet_spring?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC",
+        "spring.datasource.username" : "root",
+        "spring.datasource.password" : "root",
+        "spring.jpa.properties.hibernate.dialect" : "org.hibernate.dialect.MySQL5InnoDBDialect",
+        "spring.jpa.hibernate.ddl-auto" : "update"
+      }'     
 
- mysql:
-   container_name: mysql
+ mysqldb:
+   container_name: mysqldb
    ports:
     - "3000:3306"
    image: "mysql"   
    environment:
       - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=timesheet-spring
       
