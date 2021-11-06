@@ -9,6 +9,9 @@ services:
     - mysql
    depends_on:
      - mysql
+   environment:
+     - spring.datasource.url=jdbc:mysql://mysql:3306/timesheet-spring?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+     
 
  mysql:
    container_name: mysql
