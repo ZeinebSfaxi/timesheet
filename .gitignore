@@ -27,3 +27,4 @@ target/
 /.nb-gradle/
 build/
 
+logs/mylog.log
