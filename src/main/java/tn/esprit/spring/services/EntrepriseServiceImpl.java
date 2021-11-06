@@ -14,8 +14,8 @@ import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EntrepriseRepository;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 @Service
 public class EntrepriseServiceImpl implements IEntrepriseService {
@@ -25,7 +25,8 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 	@Autowired
 	DepartementRepository deptRepoistory;
 
-	private static final Logger log = LogManager.getLogger(EntrepriseServiceImpl.class);
+
+	private Logger log = LoggerFactory.getLogger(EntrepriseServiceImpl.class);
 
 	public int ajouterEntreprise(Entreprise entreprise) {
 		entrepriseRepoistory.save(entreprise);
@@ -50,8 +51,8 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				Entreprise entreprise = entrepriseManagedEntity.get();
 				departement.setEntreprise(entreprise);
 				deptRepoistory.save(departement);
-				log.info(entrepriseManagedEntity);
-				log.info(depManagedEntity);
+				log.info(entrepriseManagedEntity.toString());
+				log.info(depManagedEntity.toString());
 			}
 		}
 
@@ -73,7 +74,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				for (Departement dep : entreprise.getDepartements()) {
 					depNames.add(dep.getName());
 				}
-				log.info(entrepriseManagedEntity);
+				log.info(entrepriseManagedEntity.toString());
 				return depNames;
 				
 			}
@@ -94,7 +95,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		Optional<Entreprise> entreprise = entrepriseRepoistory.findById(id);
 		try {
 			if (entreprise.isPresent()) {
-				log.info(entreprise);
+				log.info(entreprise.toString());
 				entrepriseRepoistory.delete(entreprise.get());
 			} else {
 				log.warn("N'existe pas");
@@ -111,7 +112,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		try {
 
 			if (departement.isPresent()) {
-				log.info(departement);
+				log.info(departement.toString());
 				deptRepoistory.delete(departement.get());
 			} else {
 				log.warn("N'existe pas");
@@ -128,7 +129,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 			if (entreprise.isPresent()) {
 
 				entreprisee = entreprise.get();
-				log.info(entreprisee);
+				log.info(entreprisee.toString());
 				return entreprisee;
 			}
 		} catch (Exception e) {
