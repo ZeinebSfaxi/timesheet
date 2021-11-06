@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+ timesheet:
+   build: .
+   ports:
+     - "8082:8082"
+   image: "timesheet-image"
+   
+
+      
+      
