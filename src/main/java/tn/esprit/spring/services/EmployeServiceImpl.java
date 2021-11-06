@@ -21,8 +21,10 @@ import tn.esprit.spring.repository.ContratRepository;
 import tn.esprit.spring.repository.DepartementRepository;
 import tn.esprit.spring.repository.EmployeRepository;
 import tn.esprit.spring.repository.TimesheetRepository;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+
 import org.modelmapper.ModelMapper;
 
 @Service
@@ -40,7 +42,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 	
-	private static final Logger log = LogManager.getLogger(EmployeServiceImpl.class);
+	private Logger log = LoggerFactory.getLogger(EmployeServiceImpl.class);
 
 	
 	@Override
