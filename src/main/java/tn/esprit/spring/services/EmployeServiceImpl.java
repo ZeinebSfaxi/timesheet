@@ -43,6 +43,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	private PasswordEncoder passwordEncoder;
 	
 	private Logger log = LoggerFactory.getLogger(EmployeServiceImpl.class);
+	private static final String empAffected ="employee affected";
 
 	
 	@Override
@@ -117,7 +118,7 @@ public class EmployeServiceImpl implements IEmployeService {
 				deptRepoistory.save(department);
 
 				log.info("departement affected "+department);
-				log.info("employee affected "+employe);
+				log.info(empAffected+' '+employe);
 
 			}
 
@@ -172,7 +173,7 @@ public class EmployeServiceImpl implements IEmployeService {
 					employeRepository.save(emp);
 					
 					log.info("departement affected "+dep);
-					log.info("employee affected "+emp);
+					log.info(empAffected+' '+emp);
 				}
 			}
 
@@ -211,7 +212,7 @@ public class EmployeServiceImpl implements IEmployeService {
 				contratRepoistory.save(contrat);
 				
 				log.info("contart affected "+contrat);
-				log.info("employee affected "+employe);
+				log.info(empAffected+' '+employe);
 			} else {
 				log.warn("Ce contract ou cet employé n'existe pas");
 			}
