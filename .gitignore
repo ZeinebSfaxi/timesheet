@@ -30,3 +30,9 @@ build/
 logs/mylog.log
 src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
 src/main/webapp/WEB-INF/classes/META-INF/MANIFEST.MF
+src/main/webapp/WEB-INF/classes/META-INF/MANIFEST.MF
+src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
+src/main/webapp/WEB-INF/classes/tn/esprit/spring/services/EntrepriseServiceImpl.class
+src/main/webapp/WEB-INF/classes/META-INF/maven/tn.esprit.spring/timesheet/pom.properties
+src/main/java/tn/esprit/spring/services/EntrepriseServiceImpl.java
+src/main/webapp/WEB-INF/classes/META-INF/MANIFEST.MF

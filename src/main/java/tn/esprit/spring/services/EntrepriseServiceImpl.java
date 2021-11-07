@@ -27,6 +27,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 
 
 	private Logger log = LoggerFactory.getLogger(EntrepriseServiceImpl.class);
+	private static final String STRINGLOG = "Log this: {}"; 
 
 	public int ajouterEntreprise(Entreprise entreprise) {
 		entrepriseRepoistory.save(entreprise);
@@ -51,8 +52,9 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				Entreprise entreprise = entrepriseManagedEntity.get();
 				departement.setEntreprise(entreprise);
 				deptRepoistory.save(departement);
-				log.info(entrepriseManagedEntity.toString());
-				log.info(depManagedEntity.toString());
+			
+				log.info(STRINGLOG, entrepriseManagedEntity);
+				 log.info(STRINGLOG, depManagedEntity);
 			}
 		}
 
@@ -74,7 +76,9 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 				for (Departement dep : entreprise.getDepartements()) {
 					depNames.add(dep.getName());
 				}
-				log.info(entrepriseManagedEntity.toString());
+
+			    log.info(STRINGLOG, entrepriseManagedEntity);
+			
 				return depNames;
 				
 			}
@@ -95,7 +99,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		Optional<Entreprise> entreprise = entrepriseRepoistory.findById(id);
 		try {
 			if (entreprise.isPresent()) {
-				log.info(entreprise.toString());
+				  log.info(STRINGLOG, entreprise);
 				entrepriseRepoistory.delete(entreprise.get());
 			} else {
 				log.warn("N'existe pas");
@@ -112,7 +116,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 		try {
 
 			if (departement.isPresent()) {
-				log.info(departement.toString());
+				log.info(STRINGLOG, departement);
 				deptRepoistory.delete(departement.get());
 			} else {
 				log.warn("N'existe pas");
@@ -129,7 +133,7 @@ public class EntrepriseServiceImpl implements IEntrepriseService {
 			if (entreprise.isPresent()) {
 
 				entreprisee = entreprise.get();
-				log.info(entreprisee.toString());
+				log.info(STRINGLOG, entreprisee);
 				return entreprisee;
 			}
 		} catch (Exception e) {
