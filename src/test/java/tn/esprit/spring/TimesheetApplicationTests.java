@@ -77,19 +77,29 @@ class TimesheetApplicationTests {
 
 
 		Entreprise e = new Entreprise("ENTREPRISENAME", "MITHEL");
-		ientrepriseservice.ajouterEntreprise(e);
-        Departement department1 = new Departement();
 		
+		//ajouter entreprise
+		ientrepriseservice.ajouterEntreprise(e);
+        
+		Departement department1 = new Departement();
+		//ajouter departement 1
 		department.setName("IT");
 		ientrepriseservice.ajouterDepartement(department1);
 		
 		Departement department2 = new Departement();
-		//d1.setEntreprise(e);
+		//ajouter departement 2
 		department1.setName("TELECOM");
 		ientrepriseservice.ajouterDepartement(department2);
 		
+		//affectation
 		ientrepriseservice.affecterDepartementAEntreprise(1, 1);
 		ientrepriseservice.affecterDepartementAEntreprise(2, 1);
+		
+		//getAllDepartementsNamesByEntreprise
+		ientrepriseservice.getAllDepartementsNamesByEntreprise(1);
+		
+		//get entreprise by id 
+		ientrepriseservice.getEntrepriseById(1);
 	
 		
 		
