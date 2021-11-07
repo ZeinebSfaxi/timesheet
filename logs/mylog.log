@@ -3742,3 +3742,41 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'timesheet_spring.timesheet' 
 2021-11-07 19:48:18.359  INFO 4248 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-11-07 19:48:18.363  INFO 4248 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-11-07 19:48:18.512  INFO 4248 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-07 20:04:43.465  INFO 1288 --- [main] t.e.spring.TimesheetApplicationTests     : Starting TimesheetApplicationTests on DESKTOP-KC0EMFR with PID 1288 (started by achra in C:\Users\achra\eclipse-workspace\Devops\timesheet)
+2021-11-07 20:04:43.467  INFO 1288 --- [main] t.e.spring.TimesheetApplicationTests     : No active profile set, falling back to default profiles: default
+2021-11-07 20:04:44.678  INFO 1288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-07 20:04:44.789  INFO 1288 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 100ms. Found 6 repository interfaces.
+2021-11-07 20:04:45.228  INFO 1288 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-07 20:04:45.598  INFO 1288 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-07 20:04:45.781  INFO 1288 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2021-11-07 20:04:45.952  INFO 1288 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-11-07 20:04:46.269  INFO 1288 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-07 20:04:46.275  WARN 1288 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-07 20:04:46.866  INFO 1288 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-07 20:04:46.885  INFO 1288 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-07 20:05:08.209  INFO 1288 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-07 20:05:08.217  INFO 1288 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 20:05:09.487  WARN 1288 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-07 20:05:10.042  INFO 1288 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-07 20:05:10.676  INFO 1288 --- [main] t.e.spring.TimesheetApplicationTests     : Started TimesheetApplicationTests in 27.644 seconds (JVM running for 28.695)
+2021-11-07 20:05:12.180  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee added : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$7uYOshrvxXtOJ/uuQdqh2ekvHLWXIPlIOeofw93hoGUsB1zNsxMxC, actif=true, role=INGENIEUR]
+2021-11-07 20:05:12.302  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee logged in : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$7uYOshrvxXtOJ/uuQdqh2ekvHLWXIPlIOeofw93hoGUsB1zNsxMxC, actif=true, role=INGENIEUR]
+2021-11-07 20:05:12.319  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : Employe prenom : Amine
+2021-11-07 20:05:12.324  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : Nombre employees : 1
+2021-11-07 20:05:12.326  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee names : [Zargouni]
+2021-11-07 20:05:13.484  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : departement affected tn.esprit.spring.entities.Departement@632b5c79
+2021-11-07 20:05:13.485  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$7uYOshrvxXtOJ/uuQdqh2ekvHLWXIPlIOeofw93hoGUsB1zNsxMxC, actif=true, role=INGENIEUR]
+2021-11-07 20:05:14.165  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat added tn.esprit.spring.entities.Contrat@21698e5a
+2021-11-07 20:05:14.420  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : contart affected tn.esprit.spring.entities.Contrat@1bea7b0
+2021-11-07 20:05:14.420  INFO 1288 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$7uYOshrvxXtOJ/uuQdqh2ekvHLWXIPlIOeofw93hoGUsB1zNsxMxC, actif=true, role=INGENIEUR]
+2021-11-07 20:05:14.817  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : ENTREPRISENAME
+2021-11-07 20:05:15.110  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 20:05:15.205  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 20:05:15.255  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[]]]
+2021-11-07 20:05:15.255  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@35d88a54]
+2021-11-07 20:05:15.305  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@6b289535]]]
+2021-11-07 20:05:15.306  INFO 1288 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@115ef673]
+2021-11-07 20:05:15.364  INFO 1288 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-07 20:05:15.366  INFO 1288 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 20:05:15.369  INFO 1288 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-07 20:05:15.386  INFO 1288 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
