@@ -2,87 +2,36 @@ package tn.esprit.spring.entities;
 
 import java.util.List;
 
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class EmployeDTO {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	
 	private int id;
 
 	private String prenom;
 
 	private String nom;
 
-	// @Column(unique=true)
-	// @Pattern(regex=".+\@.+\..+")
+
 	private String email;
 
 	private String password;
 
 	private boolean actif;
 
-	@Enumerated(EnumType.STRING)
-	// @NotNull
 	private Role role;
 
-	// @JsonBackReference
-	@JsonIgnore
-	@ManyToMany(mappedBy = "employes", fetch = FetchType.EAGER)
-	// @NotNull
+
 	private List<Departement> departements;
 
-	@JsonIgnore
-	// @JsonBackReference
-	@OneToOne(mappedBy = "employe")
+
 	private Contrat contrat;
 
-	@JsonIgnore
-	// @JsonBackReference
-	@OneToMany(mappedBy = "employe")
 	private List<Timesheet> timesheets;
 
-	public EmployeDTO() {
-		super();
-	}
 
-	public EmployeDTO(int id, String prenom, String nom, String email, String password, boolean actif, Role role) {
-		super();
-		this.id = id;
-		this.prenom = prenom;
-		this.nom = nom;
-		this.email = email;
-		this.password = password;
-		this.actif = actif;
-		this.role = role;
-	}
 
-	public EmployeDTO(String nom, String prenom, String email, String password, boolean actif, Role role) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.password = password;
-		this.actif = actif;
-		this.role = role;
-	}
-
-	public EmployeDTO(String nom, String prenom, String email, boolean actif, Role role) {
-		this.nom = nom;
-		this.prenom = prenom;
-		this.email = email;
-		this.actif = actif;
-		this.role = role;
-	}
 
 	public int getId() {
 		return id;
