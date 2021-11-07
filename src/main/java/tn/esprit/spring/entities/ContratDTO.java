@@ -8,60 +8,60 @@ public class ContratDTO {
 
 	
 	
-	private int reference;
+	private int referenceD;
 	
 	
-	private Date dateDebut;
+	private Date dateDebutD;
 	
-	private String typeContrat;
+	private String typeContratD;
 	
 	
 	
 
-	private Employe employe;
+	private Employe employeD;
 
-	private float salaire;
+	private float salaireD;
 
 	
 
 	public Date getDateDebut() {
-		return dateDebut;
+		return dateDebutD;
 	}
 
 	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
+		this.dateDebutD = dateDebut;
 	}
 
 	public int getReference() {
-		return reference;
+		return referenceD;
 	}
 
 	public void setReference(int reference) {
-		this.reference = reference;
+		this.referenceD = reference;
 	}
 
 	public String getTypeContrat() {
-		return typeContrat;
+		return typeContratD;
 	}
 
 	public void setTypeContrat(String typeContrat) {
-		this.typeContrat = typeContrat;
+		this.typeContratD = typeContrat;
 	}
 
 	public float getSalaire() {
-		return salaire;
+		return salaireD;
 	}
 
 	public void setSalaire(float salaire) {
-		this.salaire = salaire;
+		this.salaireD = salaire;
 	}
 
 	public Employe getEmploye() {
-		return employe;
+		return employeD;
 	}
 
 	public void setEmploye(Employe employe) {
-		this.employe = employe;
+		this.employeD = employe;
 	}
 	
 	
