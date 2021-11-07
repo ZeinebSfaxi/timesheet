@@ -4021,3 +4021,95 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'timesheet_spring.timesheet' 
 2021-11-07 20:58:20.729  INFO 3912 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-11-07 20:58:20.732  INFO 3912 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-11-07 20:58:20.745  INFO 3912 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-07 23:48:50.221  INFO 11496 --- [main] t.e.spring.TimesheetApplicationTests     : Starting TimesheetApplicationTests on DESKTOP-UQ46J8I with PID 11496 (started by zeineb in C:\Users\zeineb\Documents\dirasa\eclipse-workspace\timesheet)
+2021-11-07 23:48:50.222  INFO 11496 --- [main] t.e.spring.TimesheetApplicationTests     : No active profile set, falling back to default profiles: default
+2021-11-07 23:48:51.179  INFO 11496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-07 23:48:51.281  INFO 11496 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 90ms. Found 6 repository interfaces.
+2021-11-07 23:48:51.687  INFO 11496 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-07 23:48:52.076  INFO 11496 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-07 23:48:52.248  INFO 11496 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2021-11-07 23:48:52.436  INFO 11496 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-11-07 23:48:52.881  INFO 11496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-07 23:48:52.885  WARN 11496 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-07 23:48:53.121  INFO 11496 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-07 23:48:53.145  INFO 11496 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-07 23:48:54.880  INFO 11496 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-07 23:48:54.888  INFO 11496 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 23:48:56.323  WARN 11496 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-07 23:48:56.760  INFO 11496 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-07 23:48:57.353  INFO 11496 --- [main] t.e.spring.TimesheetApplicationTests     : Started TimesheetApplicationTests in 7.451 seconds (JVM running for 8.605)
+2021-11-07 23:48:57.715  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee added : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$qNZVkfEJ7rHN8wn/yFM7R.dNwJeXezcozUTO7v1SaeP0CC0UA0SU., actif=true, role=INGENIEUR] .
+2021-11-07 23:48:57.844  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee logged in : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$qNZVkfEJ7rHN8wn/yFM7R.dNwJeXezcozUTO7v1SaeP0CC0UA0SU., actif=true, role=INGENIEUR] .
+2021-11-07 23:48:57.858  WARN 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Cet employé n'existe pas
+2021-11-07 23:48:57.866  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Employe prenom  : Amine .
+2021-11-07 23:48:57.872  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Nombre employees  : 1 .
+2021-11-07 23:48:57.875  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee names  : [Zargouni] .
+2021-11-07 23:48:57.896  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : departement affected  : tn.esprit.spring.entities.Departement@13d1f898 .
+2021-11-07 23:48:57.896  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected : tn.esprit.spring.entities.Departement@13d1f898 .
+2021-11-07 23:48:57.915  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat added  : tn.esprit.spring.entities.Contrat@78743dd8 .
+2021-11-07 23:48:57.935  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat affected  : tn.esprit.spring.entities.Contrat@1b5af65b .
+2021-11-07 23:48:57.935  INFO 11496 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected   : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$qNZVkfEJ7rHN8wn/yFM7R.dNwJeXezcozUTO7v1SaeP0CC0UA0SU., actif=true, role=INGENIEUR] .
+2021-11-07 23:48:57.945  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : ENTREPRISENAME
+2021-11-07 23:48:57.950  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 23:48:57.954  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 23:48:57.965  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[]]]
+2021-11-07 23:48:57.966  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[tn.esprit.spring.entities.Departement@7a34c1f6]
+2021-11-07 23:48:57.980  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@40d10264]]]
+2021-11-07 23:48:57.981  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[tn.esprit.spring.entities.Departement@21e39b82]
+2021-11-07 23:48:57.985  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@286dfa20, tn.esprit.spring.entities.Departement@1468e880]]]
+2021-11-07 23:48:57.988  INFO 11496 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@b144175, tn.esprit.spring.entities.Departement@38923cfe]]
+2021-11-07 23:48:58.023  INFO 11496 --- [main] t.e.s.services.TimesheetServiceImpl      : Log this: mission Optional[tn.esprit.spring.entities.Mission@4cf01c41]
+2021-11-07 23:48:58.053  WARN 11496 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1451, SQLState: 23000
+2021-11-07 23:48:58.054 ERROR 11496 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot delete or update a parent row: a foreign key constraint fails (`timesheet_spring`.`timesheet`, CONSTRAINT `FKbauiu1nsna8neie2d892t99vq` FOREIGN KEY (`id_mission`) REFERENCES `mission` (`id`))
+2021-11-07 23:48:58.055  INFO 11496 --- [main] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2021-11-07 23:48:58.060 ERROR 11496 --- [main] t.e.s.services.TimesheetServiceImpl      : org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2021-11-07 23:48:58.104  INFO 11496 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-07 23:48:58.106  INFO 11496 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 23:48:58.108  INFO 11496 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-07 23:48:58.123  INFO 11496 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-07 23:49:58.888  INFO 7184 --- [main] t.e.spring.TimesheetApplicationTests     : Starting TimesheetApplicationTests on DESKTOP-UQ46J8I with PID 7184 (started by zeineb in C:\Users\zeineb\Documents\dirasa\eclipse-workspace\timesheet)
+2021-11-07 23:49:58.891  INFO 7184 --- [main] t.e.spring.TimesheetApplicationTests     : No active profile set, falling back to default profiles: default
+2021-11-07 23:49:59.725  INFO 7184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-07 23:49:59.833  INFO 7184 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 96ms. Found 6 repository interfaces.
+2021-11-07 23:50:00.291  INFO 7184 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-07 23:50:00.600  INFO 7184 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-07 23:50:00.767  INFO 7184 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2021-11-07 23:50:00.910  INFO 7184 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-11-07 23:50:01.312  INFO 7184 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-07 23:50:01.317  WARN 7184 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-07 23:50:01.518  INFO 7184 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-07 23:50:01.537  INFO 7184 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-07 23:50:03.162  INFO 7184 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-07 23:50:03.173  INFO 7184 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 23:50:04.562  WARN 7184 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-07 23:50:05.033  INFO 7184 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-07 23:50:05.649  INFO 7184 --- [main] t.e.spring.TimesheetApplicationTests     : Started TimesheetApplicationTests in 7.101 seconds (JVM running for 8.262)
+2021-11-07 23:50:06.059  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee added : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$Tfpoy9wRS71fXMXMQAXxUuxwf.dOwDjx6fkacxsUbZQxWWW/Yp/Ji, actif=true, role=INGENIEUR] .
+2021-11-07 23:50:06.197  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee logged in : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$Tfpoy9wRS71fXMXMQAXxUuxwf.dOwDjx6fkacxsUbZQxWWW/Yp/Ji, actif=true, role=INGENIEUR] .
+2021-11-07 23:50:06.211  WARN 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Cet employé n'existe pas
+2021-11-07 23:50:06.217  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Employe prenom  : Amine .
+2021-11-07 23:50:06.221  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Nombre employees  : 1 .
+2021-11-07 23:50:06.225  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee names  : [Zargouni] .
+2021-11-07 23:50:06.245  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : departement affected  : tn.esprit.spring.entities.Departement@3bcedb06 .
+2021-11-07 23:50:06.245  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected : tn.esprit.spring.entities.Departement@3bcedb06 .
+2021-11-07 23:50:06.264  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat added  : tn.esprit.spring.entities.Contrat@644b68ad .
+2021-11-07 23:50:06.283  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat affected  : tn.esprit.spring.entities.Contrat@58583a2d .
+2021-11-07 23:50:06.283  INFO 7184 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected   : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$Tfpoy9wRS71fXMXMQAXxUuxwf.dOwDjx6fkacxsUbZQxWWW/Yp/Ji, actif=true, role=INGENIEUR] .
+2021-11-07 23:50:06.294  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : ENTREPRISENAME
+2021-11-07 23:50:06.298  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 23:50:06.302  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 23:50:06.313  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[]]]
+2021-11-07 23:50:06.313  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[tn.esprit.spring.entities.Departement@54ca9420]
+2021-11-07 23:50:06.326  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@5f9a8ddc]]]
+2021-11-07 23:50:06.327  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[tn.esprit.spring.entities.Departement@3c910acd]
+2021-11-07 23:50:06.330  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@1e23ee0e, tn.esprit.spring.entities.Departement@b144175]]]
+2021-11-07 23:50:06.334  INFO 7184 --- [main] t.e.s.services.EntrepriseServiceImpl     : Log this: Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@67784537, tn.esprit.spring.entities.Departement@17ec5e2a]]
+2021-11-07 23:50:06.367  INFO 7184 --- [main] t.e.s.services.TimesheetServiceImpl      : Log this: mission Optional[tn.esprit.spring.entities.Mission@4ec27c4c]
+2021-11-07 23:50:06.388  WARN 7184 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1451, SQLState: 23000
+2021-11-07 23:50:06.388 ERROR 7184 --- [main] o.h.engine.jdbc.spi.SqlExceptionHelper   : Cannot delete or update a parent row: a foreign key constraint fails (`timesheet_spring`.`timesheet`, CONSTRAINT `FKbauiu1nsna8neie2d892t99vq` FOREIGN KEY (`id_mission`) REFERENCES `mission` (`id`))
+2021-11-07 23:50:06.389  INFO 7184 --- [main] o.h.e.j.b.internal.AbstractBatchImpl     : HHH000010: On release of batch it still contained JDBC statements
+2021-11-07 23:50:06.395 ERROR 7184 --- [main] t.e.s.services.TimesheetServiceImpl      : org.springframework.dao.DataIntegrityViolationException: could not execute statement; SQL [n/a]; constraint [null]; nested exception is org.hibernate.exception.ConstraintViolationException: could not execute statement
+2021-11-07 23:50:06.447  INFO 7184 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-07 23:50:06.449  INFO 7184 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 23:50:06.452  INFO 7184 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-07 23:50:06.464  INFO 7184 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
