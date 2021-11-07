@@ -2,43 +2,27 @@ package tn.esprit.spring.entities;
 
 import java.util.Date;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToOne;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+
 
 public class ContratDTO {
 
 	
 	
-	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int reference;
 	
-	@Temporal(TemporalType.DATE)
+	
 	private Date dateDebut;
 	
 	private String typeContrat;
 	
 	
 	
-	@OneToOne
+
 	private Employe employe;
 
 	private float salaire;
 
-	public ContratDTO() {
-		super();
-	}
 	
-	public ContratDTO(Date dateDebut, String typeContrat, float salaire) {
-		this.dateDebut = dateDebut;
-		this.typeContrat = typeContrat;
-		this.salaire = salaire;
-	}
-
 
 	public Date getDateDebut() {
 		return dateDebut;
