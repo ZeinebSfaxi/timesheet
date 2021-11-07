@@ -121,7 +121,7 @@ public class EmployeServiceImpl implements IEmployeService {
 
 				log.info("departement affected  : {} .", department);
 
-				log.info("{}   : {} .",EMPAFFECTED, department);
+				log.info("{} : {} .",EMPAFFECTED, department);
 
 
 			}

@@ -40,12 +40,14 @@ class TimesheetApplicationTests {
 		
 		//employee test
 		Employe emp = new Employe("Zargouni","Amine","mohamedamine.zargouni@esprit.tn","123456",true,Role.INGENIEUR);
+		Employe emp2 = new Employe("testdelete","testdelete","delete.delete@esprit.tn","0000",true,Role.INGENIEUR);
+
 		iEmployeService.addOrUpdateEmploye(emp);
 		
 		//iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123");
 		Employe loggedIn= iEmployeService.authenticate("mohamedamine.zargouni@esprit.tn", "123456");
 		
-		//iEmployeService.deleteEmployeById(6);
+		iEmployeService.deleteEmployeById(emp2.getId());
 		//iEmployeService.mettreAjourEmailByEmployeId("testemail@email.com", 7);
 		
 		
