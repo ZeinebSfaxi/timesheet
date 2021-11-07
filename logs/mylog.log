@@ -3716,3 +3716,29 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'timesheet_spring.timesheet' 
 2021-11-07 19:47:00.140  WARN 4248 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
 2021-11-07 19:47:01.827  INFO 4248 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
 2021-11-07 19:47:02.160  INFO 4248 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-07 19:47:49.853  INFO 4248 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-07 19:47:49.943  INFO 4248 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 19:47:59.695  WARN 4248 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-07 19:48:01.776  INFO 4248 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-07 19:48:08.027  INFO 4248 --- [main] t.e.spring.TimesheetApplicationTests     : Started TimesheetApplicationTests in 92.738 seconds (JVM running for 98.649)
+2021-11-07 19:48:14.892  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee added : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$6VV62213HATOuZ0n29BrsulzX5LiF3PvWe1vFdW9De1DIOVAhR5mK, actif=true, role=INGENIEUR]
+2021-11-07 19:48:15.640  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee logged in : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$6VV62213HATOuZ0n29BrsulzX5LiF3PvWe1vFdW9De1DIOVAhR5mK, actif=true, role=INGENIEUR]
+2021-11-07 19:48:15.658  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : Employe prenom : Amine
+2021-11-07 19:48:15.664  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : Nombre employees : 1
+2021-11-07 19:48:15.668  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee names : [Zargouni]
+2021-11-07 19:48:16.098  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : departement affected tn.esprit.spring.entities.Departement@f0c1ae1
+2021-11-07 19:48:16.098  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$6VV62213HATOuZ0n29BrsulzX5LiF3PvWe1vFdW9De1DIOVAhR5mK, actif=true, role=INGENIEUR]
+2021-11-07 19:48:16.889  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat added tn.esprit.spring.entities.Contrat@4ba13fed
+2021-11-07 19:48:17.221  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : contart affected tn.esprit.spring.entities.Contrat@6f9a3325
+2021-11-07 19:48:17.221  INFO 4248 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$6VV62213HATOuZ0n29BrsulzX5LiF3PvWe1vFdW9De1DIOVAhR5mK, actif=true, role=INGENIEUR]
+2021-11-07 19:48:17.421  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : ENTREPRISENAME
+2021-11-07 19:48:17.691  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 19:48:18.018  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 19:48:18.139  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[]]]
+2021-11-07 19:48:18.139  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@e2c627e]
+2021-11-07 19:48:18.188  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@3e8afc2d]]]
+2021-11-07 19:48:18.189  INFO 4248 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@e7d0db2]
+2021-11-07 19:48:18.356  INFO 4248 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-07 19:48:18.359  INFO 4248 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 19:48:18.363  INFO 4248 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-07 19:48:18.512  INFO 4248 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
