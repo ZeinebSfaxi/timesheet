@@ -3666,3 +3666,53 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'timesheet_spring.timesheet' 
 2021-11-07 19:06:22.138  INFO 13880 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2021-11-07 19:06:22.145  INFO 13880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2021-11-07 19:06:22.158  INFO 13880 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-07 19:15:46.199  INFO 11916 --- [main] t.e.spring.TimesheetApplicationTests     : Starting TimesheetApplicationTests on DESKTOP-KC0EMFR with PID 11916 (started by achra in C:\Users\achra\eclipse-workspace\Devops\timesheet)
+2021-11-07 19:15:46.201  INFO 11916 --- [main] t.e.spring.TimesheetApplicationTests     : No active profile set, falling back to default profiles: default
+2021-11-07 19:15:47.463  INFO 11916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-07 19:15:47.562  INFO 11916 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 84ms. Found 6 repository interfaces.
+2021-11-07 19:15:49.107  INFO 11916 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-07 19:15:51.022  INFO 11916 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-07 19:15:52.008  INFO 11916 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2021-11-07 19:15:53.511  INFO 11916 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-11-07 19:15:54.767  INFO 11916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-07 19:15:54.774  WARN 11916 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-07 19:15:55.662  INFO 11916 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-07 19:15:55.732  INFO 11916 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+2021-11-07 19:16:16.092  INFO 11916 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-11-07 19:16:16.121  INFO 11916 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 19:16:20.729  WARN 11916 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-11-07 19:16:21.342  INFO 11916 --- [main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-11-07 19:16:21.847  INFO 11916 --- [main] t.e.spring.TimesheetApplicationTests     : Started TimesheetApplicationTests in 36.051 seconds (JVM running for 37.496)
+2021-11-07 19:16:23.028  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee added : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$SD.XJN961a8OJe4m0ZYoc.QfmZk284NkRYWqpTlqsNVpTUxvHCVIG, actif=true, role=INGENIEUR]
+2021-11-07 19:16:23.169  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee logged in : Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$SD.XJN961a8OJe4m0ZYoc.QfmZk284NkRYWqpTlqsNVpTUxvHCVIG, actif=true, role=INGENIEUR]
+2021-11-07 19:16:23.184  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : Employe prenom : Amine
+2021-11-07 19:16:23.188  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : Nombre employees : 1
+2021-11-07 19:16:23.193  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : Employee names : [Zargouni]
+2021-11-07 19:16:23.277  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : departement affected tn.esprit.spring.entities.Departement@f0c1ae1
+2021-11-07 19:16:23.278  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$SD.XJN961a8OJe4m0ZYoc.QfmZk284NkRYWqpTlqsNVpTUxvHCVIG, actif=true, role=INGENIEUR]
+2021-11-07 19:16:23.387  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : contrat added tn.esprit.spring.entities.Contrat@4ba13fed
+2021-11-07 19:16:23.510  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : contart affected tn.esprit.spring.entities.Contrat@6f9a3325
+2021-11-07 19:16:23.511  INFO 11916 --- [main] t.e.spring.services.EmployeServiceImpl   : employee affected Employe [id=1, prenom=Amine, nom=Zargouni, email=mohamedamine.zargouni@esprit.tn, password=$2a$10$SD.XJN961a8OJe4m0ZYoc.QfmZk284NkRYWqpTlqsNVpTUxvHCVIG, actif=true, role=INGENIEUR]
+2021-11-07 19:16:23.605  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : ENTREPRISENAME
+2021-11-07 19:16:23.672  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 19:16:23.761  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : null
+2021-11-07 19:16:23.799  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[]]]
+2021-11-07 19:16:23.799  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@e2c627e]
+2021-11-07 19:16:23.839  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[Entreprise [id=1, name=ENTREPRISENAME, raisonSocial=MITHEL, departements=[tn.esprit.spring.entities.Departement@3e8afc2d]]]
+2021-11-07 19:16:23.839  INFO 11916 --- [main] t.e.s.services.EntrepriseServiceImpl     : Optional[tn.esprit.spring.entities.Departement@e7d0db2]
+2021-11-07 19:16:23.952  INFO 11916 --- [SpringContextShutdownHook] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-11-07 19:16:23.954  INFO 11916 --- [SpringContextShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-11-07 19:16:23.957  INFO 11916 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2021-11-07 19:16:24.020  INFO 11916 --- [SpringContextShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2021-11-07 19:46:38.859  INFO 4248 --- [main] t.e.spring.TimesheetApplicationTests     : Starting TimesheetApplicationTests on DESKTOP-KC0EMFR with PID 4248 (started by achra in C:\Users\achra\eclipse-workspace\Devops\timesheet)
+2021-11-07 19:46:38.860  INFO 4248 --- [main] t.e.spring.TimesheetApplicationTests     : No active profile set, falling back to default profiles: default
+2021-11-07 19:46:50.513  INFO 4248 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data repositories in DEFAULT mode.
+2021-11-07 19:46:50.754  INFO 4248 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 190ms. Found 6 repository interfaces.
+2021-11-07 19:46:51.984  INFO 4248 --- [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration' of type [org.springframework.transaction.annotation.ProxyTransactionManagementConfiguration] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2021-11-07 19:46:53.118  INFO 4248 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-11-07 19:46:54.600  INFO 4248 --- [main] org.hibernate.Version                    : HHH000412: Hibernate Core {5.4.8.Final}
+2021-11-07 19:46:58.292  INFO 4248 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+2021-11-07 19:47:00.133  INFO 4248 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2021-11-07 19:47:00.140  WARN 4248 --- [main] com.zaxxer.hikari.util.DriverDataSource  : Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+2021-11-07 19:47:01.827  INFO 4248 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2021-11-07 19:47:02.160  INFO 4248 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect

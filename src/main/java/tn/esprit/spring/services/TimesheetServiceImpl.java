@@ -3,6 +3,8 @@ package tn.esprit.spring.services;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,10 +40,29 @@ public class TimesheetServiceImpl implements ITimesheetService {
 	}
     
 	public void affecterMissionADepartement(int missionId, int depId) {
-		Mission mission = missionRepository.findById(missionId).get();
-		Departement dep = deptRepoistory.findById(depId).get();
-		mission.setDepartement(dep);
-		missionRepository.save(mission);
+        Optional<Mission> mission = missionRepository.findById(missionId);
+        Optional<Departement> dep = deptRepoistory.findById(depId);
+        try {
+            if ((mission.isPresent()) && (dep.isPresent())) {
+    
+                log.info("Log this: mission {}", mission);
+
+                missionRepository.delete(mission.get());
+                log.info("Log this: {}", mission);
+                log.info("Log this department: {}", dep);
+                deptRepoistory.delete(dep.get());
+            	mission.get().setDepartement(dep.get());
+            	missionRepository.save(mission.get());
+            } else {
+                log.warn("N'existe pas");
+            }
+        } catch (Exception e) {
+            log.error(e.toString());
+        }
+    
+ 
+	
+	
 		
 	}
 
