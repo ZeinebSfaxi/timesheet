@@ -7,116 +7,116 @@ import java.util.List;
 public class EmployeDTO {
 
 	
-	private int id;
+	private int idD;
 
-	private String prenom;
+	private String prenomD;
 
-	private String nom;
-
-
-	private String email;
-
-	private String password;
-
-	private boolean actif;
-
-	private Role role;
+	private String nomD;
 
 
-	private List<Departement> departements;
+	private String emailD;
+
+	private String passwordD;
+
+	private boolean actifD;
+
+	private Role roleD;
 
 
-	private Contrat contrat;
+	private List<Departement> departementsD;
 
-	private List<Timesheet> timesheets;
+
+	private Contrat contratD;
+
+	private List<Timesheet> timesheetsD;
 
 
 
 
 	public int getId() {
-		return id;
+		return idD;
 	}
 
 	public void setId(int id) {
-		this.id = id;
+		this.idD = id;
 	}
 
 	public String getPrenom() {
-		return prenom;
+		return prenomD;
 	}
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.prenomD = prenom;
 	}
 
 	public String getNom() {
-		return nom;
+		return nomD;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomD = nom;
 	}
 
 	public String getEmail() {
-		return email;
+		return emailD;
 	}
 
 	public String getPassword() {
-		return password;
+		return passwordD;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.passwordD = password;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.emailD = email;
 	}
 
 	public boolean isActif() {
-		return actif;
+		return actifD;
 	}
 
 	public void setActif(boolean actif) {
-		this.actif = actif;
+		this.actifD = actif;
 	}
 
 	public Role getRole() {
-		return role;
+		return roleD;
 	}
 
 	public void setRole(Role role) {
-		this.role = role;
+		this.roleD = role;
 	}
 
 	public List<Departement> getDepartements() {
-		return departements;
+		return departementsD;
 	}
 
 	public void setDepartements(List<Departement> departement) {
-		this.departements = departement;
+		this.departementsD = departement;
 	}
 
 	public Contrat getContrat() {
-		return contrat;
+		return contratD;
 	}
 
 	public void setContrat(Contrat contrat) {
-		this.contrat = contrat;
+		this.contratD = contrat;
 	}
 
 	public List<Timesheet> getTimesheets() {
-		return timesheets;
+		return timesheetsD;
 	}
 
 	public void setTimesheets(List<Timesheet> timesheets) {
-		this.timesheets = timesheets;
+		this.timesheetsD = timesheets;
 	}
 
 	@Override
 	public String toString() {
-		return "Employe [id=" + id + ", prenom=" + prenom + ", nom=" + nom + ", email=" + email + ", password="
-				+ password + ", actif=" + actif + ", role=" + role + "]";
+		return "Employe [id=" + idD + ", prenom=" + prenomD + ", nom=" + nomD + ", email=" + emailD + ", password="
+				+ passwordD + ", actif=" + actifD + ", role=" + roleD + "]";
 	}
 
 }
