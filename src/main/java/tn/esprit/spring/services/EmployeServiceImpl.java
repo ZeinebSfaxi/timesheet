@@ -43,7 +43,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	private PasswordEncoder passwordEncoder;
 	
 	private Logger log = LoggerFactory.getLogger(EmployeServiceImpl.class);
-	private static final String empAffected ="employee affected";
+	private static final String EMPAFFECTED ="employee affected";
 
 	
 	@Override
@@ -51,7 +51,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 		Employe emp= employeRepository.getEmployeByEmailAndPassword(login);
 		if (passwordEncoder.matches(password, emp.getPassword()))
-		{	log.info("Employee logged in : "+emp);
+		{	log.info("Employee logged in : {} .", emp);
+
 			return emp;
 		}
 		log.warn("Email or password incorrect ");
@@ -62,13 +63,13 @@ public class EmployeServiceImpl implements IEmployeService {
 	public int addOrUpdateEmploye(Employe employe) {
 		Employe emp= employeRepository.getEmployeByEmailAndPassword(employe.getEmail());
 		if(emp!=null) {
-			log.warn("this email adress already exsits : "+employe.getEmail());
+			log.warn("this email adress already exsits : {} .", employe.getEmail());
 			return 0;
 
 		}
 		employe.setPassword(passwordEncoder.encode(employe.getPassword()));
 		employeRepository.save(employe);
-		log.info("Employee added : "+employe);
+		log.info("Employee added : {} .", employe);
 		return employe.getId();
 	}
 
@@ -81,7 +82,8 @@ public class EmployeServiceImpl implements IEmployeService {
 				Employe employe = employeManagedEntity.get();
 				employe.setEmail(email);
 				employeRepository.save(employe);
-				log.info("Employee updated : "+employe);
+				log.info("Employee updated : {} .", employe);
+
 
 			} else {
 				log.warn("Cet employe n'existe pas");
@@ -117,8 +119,10 @@ public class EmployeServiceImpl implements IEmployeService {
 
 				deptRepoistory.save(department);
 
-				log.info("departement affected "+department);
-				log.info(empAffected+' '+employe);
+				log.info("departement affected  : {} .", department);
+
+				log.info("{}   : {} .",EMPAFFECTED, department);
+
 
 			}
 
@@ -172,8 +176,10 @@ public class EmployeServiceImpl implements IEmployeService {
 					deptRepoistory.save(dep);
 					employeRepository.save(emp);
 					
-					log.info("departement affected "+dep);
-					log.info(empAffected+' '+emp);
+					
+					log.info("departement affected  : {} .", dep);
+					log.info("{}   : {} .",EMPAFFECTED, emp);
+
 				}
 			}
 
@@ -192,7 +198,9 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public int ajouterContrat(Contrat contrat) {
 		contratRepoistory.save(contrat);
-		log.info("contrat added "+contrat);
+		
+		log.info("contrat added  : {} .", contrat);
+
 
 		return contrat.getReference();
 	}
@@ -211,8 +219,10 @@ public class EmployeServiceImpl implements IEmployeService {
 				contrat.setEmploye(employe);
 				contratRepoistory.save(contrat);
 				
-				log.info("contart affected "+contrat);
-				log.info(empAffected+' '+employe);
+				log.info("contrat affected  : {} .", contrat);
+
+				log.info("{}   : {} .",EMPAFFECTED, employe);
+
 			} else {
 				log.warn("Ce contract ou cet employé n'existe pas");
 			}
@@ -227,7 +237,7 @@ public class EmployeServiceImpl implements IEmployeService {
 			Optional<Employe> employeManagedEntity = employeRepository.findById(employeId);
 			if (employeManagedEntity.isPresent()) {
 				Employe employe = employeManagedEntity.get();
-				log.info("Employe prenom : "+employe.getPrenom());
+				log.info("Employe prenom  : {} .", employe.getPrenom());
 
 				return employe.getPrenom();
 			} else {
@@ -257,7 +267,8 @@ public class EmployeServiceImpl implements IEmployeService {
 				}
 
 				employeRepository.delete(employe);
-				log.info("Employe deleted : "+employe);
+				log.info("Employe deleted  : {} .", employe);
+
 
 			}
 
@@ -280,7 +291,8 @@ public class EmployeServiceImpl implements IEmployeService {
 			if (contratManagedEntity.isPresent()) {
 				Contrat contrat = contratManagedEntity.get();
 				contratRepoistory.delete(contrat);
-				log.info("contrat deleted : "+contrat);
+				log.info("contrat deleted  : {} .", contrat);
+
 
 			}
 			
@@ -296,13 +308,14 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public int getNombreEmployeJPQL() {
-		log.info("Nombre employees : "+employeRepository.countemp());
+		log.info("Nombre employees  : {} .", employeRepository.countemp());
+
 
 		return employeRepository.countemp();
 	}
 
 	public List<String> getAllEmployeNamesJPQL() {
-		log.info("Employee names : "+employeRepository.employeNames());
+		log.info("Employee names  : {} .", employeRepository.employeNames());
 
 		return employeRepository.employeNames();
 

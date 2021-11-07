@@ -30,31 +30,31 @@ public class ControllerEmployeImpl  {
 	@Autowired
 	IEmployeService employeService;
 
-	private String login; 
-	private String password; 
-	private Boolean loggedIn;
+	private String loginC; 
+	private String passwordC; 
+	private Boolean loggedInC;
 
-	private Employe authenticatedUser = null; 
-	private String prenom; 
-	private String nom; 
-	private String email;
-	private boolean actif;
-	private Role role;  
+	private Employe authenticatedUserC = null; 
+	private String prenomC; 
+	private String nomC; 
+	private String emailC;
+	private boolean actifC;
+	private Role roleC;  
 	public Role[] getRoles() { return Role.values(); }
 
-	private List<Employe> employes; 
+	private List<Employe> employesC; 
 
-	private Integer employeIdToBeUpdated; // getter et setter
+	private Integer employeIdToBeUpdatedC; // getter et setter
 
 	private static final String LOGIN_URL ="/login.xhtml?faces-redirect=true";
 	
 	public String doLogin() {
 
 		String navigateTo = "null";
-		authenticatedUser=employeService.authenticate(login, password);
-		if (authenticatedUser != null && authenticatedUser.getRole() == Role.ADMINISTRATEUR) {
+		authenticatedUserC=employeService.authenticate(loginC, passwordC);
+		if (authenticatedUserC != null && authenticatedUserC.getRole() == Role.ADMINISTRATEUR) {
 			navigateTo = "/pages/admin/welcome.xhtml?faces-redirect=true";
-			loggedIn = true;
+			loggedInC = true;
 		}		
 
 		else
@@ -77,15 +77,15 @@ public class ControllerEmployeImpl  {
 
 	public String addEmploye() {
 
-		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
+		if (authenticatedUserC==null || !loggedInC) return LOGIN_URL;
 
-		employeService.addOrUpdateEmploye(new Employe(nom, prenom, email, password, actif, role)); 
+		employeService.addOrUpdateEmploye(new Employe(nomC, prenomC, emailC, passwordC, actifC, roleC)); 
 		return "null"; 
 	}  
 
 	public String removeEmploye(int employeId) {
 		String navigateTo = "null";
-		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
+		if (authenticatedUserC==null || !loggedInC) return LOGIN_URL;
 
 		employeService.deleteEmployeById(employeId);
 		return navigateTo; 
@@ -94,7 +94,7 @@ public class ControllerEmployeImpl  {
 	public String displayEmploye(Employe empl) 
 	{
 		String navigateTo = "null";
-		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
+		if (authenticatedUserC==null || !loggedInC) return LOGIN_URL;
 
 
 		this.setPrenom(empl.getPrenom());
@@ -113,9 +113,9 @@ public class ControllerEmployeImpl  {
 	{ 
 		String navigateTo = "null";
 		
-		if (authenticatedUser==null || !loggedIn) return LOGIN_URL;
+		if (authenticatedUserC==null || !loggedInC) return LOGIN_URL;
 
-		employeService.addOrUpdateEmploye(new Employe(employeIdToBeUpdated, nom, prenom, email, password, actif, role)); 
+		employeService.addOrUpdateEmploye(new Employe(employeIdToBeUpdatedC, nomC, prenomC, emailC, passwordC, actifC, roleC)); 
 
 		return navigateTo; 
 
@@ -133,19 +133,19 @@ public class ControllerEmployeImpl  {
 	}
 
 	public String getLogin() {
-		return login;
+		return loginC;
 	}
 
 	public void setLogin(String login) {
-		this.login = login;
+		this.loginC = login;
 	}
 
 	public String getPassword() {
-		return password;
+		return passwordC;
 	}
 
 	public void setPassword(String password) {
-		this.password = password;
+		this.passwordC = password;
 	}
 
 
@@ -154,11 +154,11 @@ public class ControllerEmployeImpl  {
 	}
 
 	public Boolean getLoggedIn() {
-		return loggedIn;
+		return loggedInC;
 	}
 
 	public void setLoggedIn(Boolean loggedIn) {
-		this.loggedIn = loggedIn;
+		this.loggedInC = loggedIn;
 	}
 
 	public int ajouterEmploye(Employe employe)
@@ -246,71 +246,71 @@ public class ControllerEmployeImpl  {
 	}
 
 	public String getPrenom() {
-		return prenom;
+		return prenomC;
 	}
 
 	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+		this.prenomC = prenom;
 	}
 
 	public String getNom() {
-		return nom;
+		return nomC;
 	}
 
 	public void setNom(String nom) {
-		this.nom = nom;
+		this.nomC = nom;
 	}
 
 	public String getEmail() {
-		return email;
+		return emailC;
 	}
 
 	public void setEmail(String email) {
-		this.email = email;
+		this.emailC = email;
 	}
 
 
 
 
 	public boolean isActif() {
-		return actif;
+		return actifC;
 	}
 
 	public void setActif(boolean actif) {
-		this.actif = actif;
+		this.actifC = actif;
 	}
 
 	public Role getRole() {
-		return role;
+		return roleC;
 	}
 
 	public void setRole(Role role) {
-		this.role = role;
+		this.roleC = role;
 	}
 
 	public List<Employe> getEmployes() {
-		employes = employeService.getAllEmployes(); 
-		return employes;
+		employesC = employeService.getAllEmployes(); 
+		return employesC;
 	}
 
 	public void setEmployes(List<Employe> employes) {
-		this.employes = employes;
+		this.employesC = employes;
 	}
 
 	public Integer getEmployeIdToBeUpdated() {
-		return employeIdToBeUpdated;
+		return employeIdToBeUpdatedC;
 	}
 
 	public void setEmployeIdToBeUpdated(Integer employeIdToBeUpdated) {
-		this.employeIdToBeUpdated = employeIdToBeUpdated;
+		this.employeIdToBeUpdatedC = employeIdToBeUpdated;
 	}
 
 	public Employe getAuthenticatedUser() {
-		return authenticatedUser;
+		return authenticatedUserC;
 	}
 
 	public void setAuthenticatedUser(Employe authenticatedUser) {
-		this.authenticatedUser = authenticatedUser;
+		this.authenticatedUserC = authenticatedUser;
 	}
 
 }
